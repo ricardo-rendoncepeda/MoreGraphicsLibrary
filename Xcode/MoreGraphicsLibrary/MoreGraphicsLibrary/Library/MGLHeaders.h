@@ -11,5 +11,6 @@
 
 #import <GLKit/GLKit.h>
 #import "MGLView.h"
+#import "MGLPrimitives.h"
 
 #endif
