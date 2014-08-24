@@ -10,5 +10,6 @@
 #define MoreGraphicsLibrary_MGLHeaders_h
 
 #import <GLKit/GLKit.h>
+#import "MGLView.h"
 
 #endif

@@ -21,6 +21,7 @@
 		807FD0A619A97319008205F1 /* MoreGraphicsLibraryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 807FD0A519A97319008205F1 /* MoreGraphicsLibraryTests.m */; };
 		807FD0B019A97325008205F1 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807FD0AF19A97325008205F1 /* OpenGLES.framework */; };
 		807FD0B219A9732A008205F1 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807FD0B119A9732A008205F1 /* GLKit.framework */; };
+		807FD0B719A97E70008205F1 /* MGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 807FD0B619A97E70008205F1 /* MGLView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		807FD0AF19A97325008205F1 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		807FD0B119A9732A008205F1 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		807FD0B419A973B3008205F1 /* MGLHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MGLHeaders.h; path = Library/MGLHeaders.h; sourceTree = "<group>"; };
+		807FD0B519A97E70008205F1 /* MGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGLView.h; path = Library/MGLView.h; sourceTree = "<group>"; };
+		807FD0B619A97E70008205F1 /* MGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGLView.m; path = Library/MGLView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				807FD0B419A973B3008205F1 /* MGLHeaders.h */,
+				807FD0B519A97E70008205F1 /* MGLView.h */,
+				807FD0B619A97E70008205F1 /* MGLView.m */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -260,6 +265,7 @@
 			files = (
 				807FD08D19A97319008205F1 /* main.m in Sources */,
 				807FD09119A97319008205F1 /* MGLAppDelegate.m in Sources */,
+				807FD0B719A97E70008205F1 /* MGLView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
