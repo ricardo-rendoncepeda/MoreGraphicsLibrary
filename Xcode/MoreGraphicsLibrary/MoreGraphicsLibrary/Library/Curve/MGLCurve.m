@@ -20,6 +20,7 @@
 // Uniform Handles
 @property (assign, nonatomic, readonly) GLuint uResolution;
 @property (assign, nonatomic, readonly) GLuint uColor;
+@property (assign, nonatomic, readonly) GLuint uSize;
 
 @end
 
@@ -35,6 +36,7 @@
         // Uniforms
         _uResolution = glGetUniformLocation(self.program, "uResolution");
         _uColor = glGetUniformLocation(self.program, "uColor");
+        _uSize = glGetUniformLocation(self.program, "uSize");
     }
     return self;
 }
@@ -93,6 +95,30 @@
     // Draw
     glLineWidth(self.width);
     glDrawArrays(GL_LINE_STRIP, 0, self.segments);
+    glDisableVertexAttribArray(self.shader.aPosition);
+    free(points);
+}
+
+- (void)showPoints
+{
+    // Uniforms
+    glUniform1f(self.shader.uSize, self.width);
+    glUniform4f(self.shader.uColor, 1.0-self.color.r, 1.0-self.color.g, 1.0-self.color.b, self.color.a);
+    glUniform2f(self.shader.uResolution, self.resolution.width, self.resolution.height);
+    
+    // Attributes
+    float* points = (float *)malloc(sizeof(float)*2*[self.controlPoints count]);
+    for(int i=0; i<[self.controlPoints count]; i++)
+    {
+        MGLPoint* p = self.controlPoints[i];
+        points[0+(i*2)] = p.x;
+        points[1+(i*2)] = p.y;
+    }
+    glEnableVertexAttribArray(self.shader.aPosition);
+    glVertexAttribPointer(self.shader.aPosition, 2, GL_FLOAT, GL_FALSE, 0, points);
+    
+    // Draw
+    glDrawArrays(GL_POINTS, 0, [self.controlPoints count]);
     glDisableVertexAttribArray(self.shader.aPosition);
     free(points);
 }

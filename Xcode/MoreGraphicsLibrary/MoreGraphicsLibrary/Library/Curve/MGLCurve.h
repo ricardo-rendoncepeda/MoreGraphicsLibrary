@@ -21,5 +21,6 @@
 - (void)bezierCubicWithControlPointA:(MGLPoint*)a b:(MGLPoint*)b;
 - (void)bezierQuarticWithControlPointA:(MGLPoint*)a b:(MGLPoint*)b c:(MGLPoint*)c;
 - (void)strokeBezier;
+- (void)showPoints;
 
 @end

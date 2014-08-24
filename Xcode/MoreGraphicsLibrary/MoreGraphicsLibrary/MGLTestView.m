@@ -36,9 +36,9 @@
 - (void)testCurveWithRect:(CGRect)rect
 {
     MGLPoint* start = [MGLPoint pointWithX:0.0 y:0.0];
-    MGLPoint* a = [MGLPoint pointWithX:100.0 y:100.0];
+    MGLPoint* a = [MGLPoint pointWithX:100.0 y:200.0];
     MGLPoint* b = [MGLPoint pointWithX:500.0 y:800.0];
-    MGLPoint* c = [MGLPoint pointWithX:1000.0 y:400.0];
+    MGLPoint* c = [MGLPoint pointWithX:600.0 y:400.0];
     MGLPoint* end = [MGLPoint pointWithX:400.0 y:200.0];
     
     MGLCurve* mglCurve = [[MGLCurve alloc] initWithLine:[MGLLine lineWithStart:start end:end] inFrame:rect];
@@ -49,6 +49,7 @@
     
     [mglCurve bezierQuarticWithControlPointA:a b:b c:c];
     [mglCurve strokeBezier];
+    [mglCurve showPoints];
 }
 
 @end
