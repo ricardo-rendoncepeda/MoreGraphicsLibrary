@@ -7,6 +7,8 @@
 //
 
 #import "MGLView.h"
+#import "MGLRect.h"
+#import "MGLColor.h"
 
 @interface MGLView ()
 
@@ -37,25 +39,24 @@
         [EAGLContext setCurrentContext:_MGLcontext];
         
         // OpenGL ES
-        glClearColor(0.0, 0.0, 0.0, 1.0);
+        glClearColor(1.0, 0.0, 0.0, 1.0);
         glViewport(0, 0, frame.size.width, frame.size.height);
         
         // Buffers
         glGenRenderbuffers(1, &_colorBuffer);
         glBindRenderbuffer(GL_RENDERBUFFER, _colorBuffer);
         [_MGLcontext renderbufferStorage:GL_RENDERBUFFER fromDrawable:_MGLlayer];
-        
+    
         glGenFramebuffers(1, &_frameBuffer);
         glBindFramebuffer(GL_FRAMEBUFFER, _frameBuffer);
         glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _colorBuffer);
-        
+
     }
     return self;
 }
 
 - (void)shadeRect:(CGRect)rect
 {
-    
 }
 
 - (void)setNeedsShade
