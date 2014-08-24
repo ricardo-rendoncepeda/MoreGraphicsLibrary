@@ -14,5 +14,7 @@
 #import "MGLPrimitives.h"
 #import "MGLColor.h"
 #import "MGLShader.h"
+#import "MGLRect.h"
+#import "MGLCurve.h"
 
 #endif

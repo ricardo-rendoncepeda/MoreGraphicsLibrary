@@ -20,6 +20,7 @@
     {
         _x = x;
         _y = y;
+        _vector = GLKVector2Make(x, y);
     }
     return self;
 }
@@ -27,39 +28,43 @@
 + (MGLPoint *)pointWithX:(float)x y:(float)y
 {return [[MGLPoint alloc] initWithX:x y:y];}
 
++ (MGLPoint *)pointWithVector:(GLKVector2)v
+{return [[MGLPoint alloc] initWithX:v.x y:v.y];}
+
+
 @end
 
 @implementation MGLLine
 
-- (instancetype)initWithPointA:(MGLPoint*)pa pointB:(MGLPoint*)pb
+- (instancetype)initWithStart:(MGLPoint*)start end:(MGLPoint*)end
 {
     if(self = [super init])
     {
-        _pa = pa;
-        _pb = pb;
+        _start = start;
+        _end = end;
     }
     return self;
 }
 
-+ (MGLLine *)lineWithPointA:(MGLPoint *)pa pointB:(MGLPoint *)pb
-{return [[MGLLine alloc] initWithPointA:pa pointB:pb];}
++ (MGLLine *)lineWithStart:(MGLPoint *)start end:(MGLPoint *)end;
+{return [[MGLLine alloc] initWithStart:start end:end];}
 
 @end
 
 @implementation MGLTriangle
 
-- (instancetype)initWithPointA:(MGLPoint*)pa pointB:(MGLPoint*)pb pointC:(MGLPoint*)pc
+- (instancetype)initWithA:(MGLPoint*)a b:(MGLPoint*)b c:(MGLPoint*)c
 {
     if(self = [super init])
     {
-        _pa = pa;
-        _pb = pb;
-        _pc = pc;
+        _a = a;
+        _b = b;
+        _c = c;
     }
     return self;
 }
 
-+ (MGLTriangle *)triangleWithPointA:(MGLPoint *)pa pointB:(MGLPoint *)pb pointC:(MGLPoint *)pc
-{return [[MGLTriangle alloc] initWithPointA:pa pointB:pb pointC:pc];}
++ (MGLTriangle *)triangleWithA:(MGLPoint *)a b:(MGLPoint *)b c:(MGLPoint *)c
+{return [[MGLTriangle alloc] initWithA:a b:b c:c];}
 
 @end

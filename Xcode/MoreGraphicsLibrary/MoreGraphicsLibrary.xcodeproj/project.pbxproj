@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		801BBA0019AA87EF00F4537E /* MGLCurve.m in Sources */ = {isa = PBXBuildFile; fileRef = 801BB9FF19AA87EF00F4537E /* MGLCurve.m */; };
+		801BBA0219AA894A00F4537E /* Curve.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 801BBA0119AA894A00F4537E /* Curve.vsh */; };
+		801BBA0419AA895600F4537E /* Curve.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 801BBA0319AA895600F4537E /* Curve.fsh */; };
 		807FD08119A97319008205F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807FD08019A97319008205F1 /* Foundation.framework */; };
 		807FD08319A97319008205F1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807FD08219A97319008205F1 /* CoreGraphics.framework */; };
 		807FD08519A97319008205F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807FD08419A97319008205F1 /* UIKit.framework */; };
@@ -42,6 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		801BB9FE19AA87EF00F4537E /* MGLCurve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGLCurve.h; path = Library/Curve/MGLCurve.h; sourceTree = "<group>"; };
+		801BB9FF19AA87EF00F4537E /* MGLCurve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGLCurve.m; path = Library/Curve/MGLCurve.m; sourceTree = "<group>"; };
+		801BBA0119AA894A00F4537E /* Curve.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Curve.vsh; path = Library/Curve/Curve.vsh; sourceTree = "<group>"; };
+		801BBA0319AA895600F4537E /* Curve.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Curve.fsh; path = Library/Curve/Curve.fsh; sourceTree = "<group>"; };
 		807FD07D19A97319008205F1 /* MoreGraphicsLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoreGraphicsLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		807FD08019A97319008205F1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		807FD08219A97319008205F1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -103,6 +110,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		801BB9FD19AA87C600F4537E /* Curve */ = {
+			isa = PBXGroup;
+			children = (
+				801BB9FE19AA87EF00F4537E /* MGLCurve.h */,
+				801BB9FF19AA87EF00F4537E /* MGLCurve.m */,
+				801BBA0119AA894A00F4537E /* Curve.vsh */,
+				801BBA0319AA895600F4537E /* Curve.fsh */,
+			);
+			name = Curve;
+			sourceTree = "<group>";
+		};
 		807FD07419A97319008205F1 = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +208,7 @@
 				807FD0C719A98DC8008205F1 /* MGLColor.m */,
 				807FD0BF19A98BCF008205F1 /* MGLShader.h */,
 				807FD0C019A98BCF008205F1 /* MGLShader.m */,
+				801BB9FD19AA87C600F4537E /* Curve */,
 				807FD0C219A98CC0008205F1 /* Rect */,
 			);
 			name = Library;
@@ -282,6 +301,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				801BBA0219AA894A00F4537E /* Curve.vsh in Resources */,
+				801BBA0419AA895600F4537E /* Curve.fsh in Resources */,
 				807FD08B19A97319008205F1 /* InfoPlist.strings in Resources */,
 				807FD0CC19A9C03E008205F1 /* Rect.fsh in Resources */,
 				807FD0CA19A9C032008205F1 /* Rect.vsh in Resources */,
@@ -310,6 +331,7 @@
 				807FD0C519A98D1E008205F1 /* MGLRect.m in Sources */,
 				807FD09119A97319008205F1 /* MGLAppDelegate.m in Sources */,
 				807FD0BD19A98750008205F1 /* MGLPrimitives.m in Sources */,
+				801BBA0019AA87EF00F4537E /* MGLCurve.m in Sources */,
 				807FD0D819A9DDB9008205F1 /* MGLTestView.m in Sources */,
 				807FD0B719A97E70008205F1 /* MGLView.m in Sources */,
 			);

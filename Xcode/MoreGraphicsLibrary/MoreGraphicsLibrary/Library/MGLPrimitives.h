@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Idean. All rights reserved.
 //
 
+#import <GLKit/GLKVector2.h>
+
 @interface MGLPrimitives : NSObject
 
 @end
@@ -14,26 +16,28 @@
 
 @property (assign, nonatomic, readonly) float x;
 @property (assign, nonatomic, readonly) float y;
+@property (assign, nonatomic, readonly) GLKVector2 vector;
 
 + (MGLPoint*)pointWithX:(float)x y:(float)y;
++ (MGLPoint*)pointWithVector:(GLKVector2)v;
 
 @end
 
 @interface MGLLine : MGLPrimitives
 
-@property (assign, nonatomic, readonly) MGLPoint* pa;
-@property (assign, nonatomic, readonly) MGLPoint* pb;
+@property (assign, nonatomic, readonly) MGLPoint* start;
+@property (assign, nonatomic, readonly) MGLPoint* end;
 
-+ (MGLLine*)lineWithPointA:(MGLPoint*)pa pointB:(MGLPoint*)pb;
++ (MGLLine*)lineWithStart:(MGLPoint*)start end:(MGLPoint*)end;
 
 @end
 
 @interface MGLTriangle : MGLPrimitives
 
-@property (assign, nonatomic, readonly) MGLPoint* pa;
-@property (assign, nonatomic, readonly) MGLPoint* pb;
-@property (assign, nonatomic, readonly) MGLPoint* pc;
+@property (assign, nonatomic, readonly) MGLPoint* a;
+@property (assign, nonatomic, readonly) MGLPoint* b;
+@property (assign, nonatomic, readonly) MGLPoint* c;
 
-+ (MGLTriangle*)triangleWithPointA:(MGLPoint*)pa pointB:(MGLPoint*)pb pointC:(MGLPoint*)pc;
++ (MGLTriangle*)triangleWithA:(MGLPoint*)a b:(MGLPoint*)b c:(MGLPoint*)c;
 
 @end
