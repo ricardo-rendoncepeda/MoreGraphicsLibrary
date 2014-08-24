@@ -24,6 +24,8 @@
 		807FD0B719A97E70008205F1 /* MGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 807FD0B619A97E70008205F1 /* MGLView.m */; };
 		807FD0BD19A98750008205F1 /* MGLPrimitives.m in Sources */ = {isa = PBXBuildFile; fileRef = 807FD0BC19A98750008205F1 /* MGLPrimitives.m */; };
 		807FD0C119A98BCF008205F1 /* MGLShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 807FD0C019A98BCF008205F1 /* MGLShader.m */; };
+		807FD0C519A98D1E008205F1 /* MGLRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 807FD0C419A98D1E008205F1 /* MGLRect.m */; };
+		807FD0C819A98DC8008205F1 /* MGLColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 807FD0C719A98DC8008205F1 /* MGLColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,10 @@
 		807FD0BC19A98750008205F1 /* MGLPrimitives.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGLPrimitives.m; path = Library/MGLPrimitives.m; sourceTree = "<group>"; };
 		807FD0BF19A98BCF008205F1 /* MGLShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGLShader.h; path = Library/MGLShader.h; sourceTree = "<group>"; };
 		807FD0C019A98BCF008205F1 /* MGLShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGLShader.m; path = Library/MGLShader.m; sourceTree = "<group>"; };
+		807FD0C319A98D1E008205F1 /* MGLRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGLRect.h; path = Library/Rect/MGLRect.h; sourceTree = "<group>"; };
+		807FD0C419A98D1E008205F1 /* MGLRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGLRect.m; path = Library/Rect/MGLRect.m; sourceTree = "<group>"; };
+		807FD0C619A98DC8008205F1 /* MGLColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGLColor.h; path = Library/MGLColor.h; sourceTree = "<group>"; };
+		807FD0C719A98DC8008205F1 /* MGLColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGLColor.m; path = Library/MGLColor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,10 +177,22 @@
 				807FD0B619A97E70008205F1 /* MGLView.m */,
 				807FD0BB19A98750008205F1 /* MGLPrimitives.h */,
 				807FD0BC19A98750008205F1 /* MGLPrimitives.m */,
+				807FD0C619A98DC8008205F1 /* MGLColor.h */,
+				807FD0C719A98DC8008205F1 /* MGLColor.m */,
 				807FD0BF19A98BCF008205F1 /* MGLShader.h */,
 				807FD0C019A98BCF008205F1 /* MGLShader.m */,
+				807FD0C219A98CC0008205F1 /* Rect */,
 			);
 			name = Library;
+			sourceTree = "<group>";
+		};
+		807FD0C219A98CC0008205F1 /* Rect */ = {
+			isa = PBXGroup;
+			children = (
+				807FD0C319A98D1E008205F1 /* MGLRect.h */,
+				807FD0C419A98D1E008205F1 /* MGLRect.m */,
+			);
+			name = Rect;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,6 +293,8 @@
 			files = (
 				807FD08D19A97319008205F1 /* main.m in Sources */,
 				807FD0C119A98BCF008205F1 /* MGLShader.m in Sources */,
+				807FD0C819A98DC8008205F1 /* MGLColor.m in Sources */,
+				807FD0C519A98D1E008205F1 /* MGLRect.m in Sources */,
 				807FD09119A97319008205F1 /* MGLAppDelegate.m in Sources */,
 				807FD0BD19A98750008205F1 /* MGLPrimitives.m in Sources */,
 				807FD0B719A97E70008205F1 /* MGLView.m in Sources */,

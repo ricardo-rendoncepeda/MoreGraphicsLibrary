@@ -12,5 +12,7 @@
 #import <GLKit/GLKit.h>
 #import "MGLView.h"
 #import "MGLPrimitives.h"
+#import "MGLColor.h"
+#import "MGLShader.h"
 
 #endif
