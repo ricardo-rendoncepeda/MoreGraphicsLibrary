@@ -8,7 +8,7 @@
 
 #import "MGLAppDelegate.h"
 #import "MGLHeaders.h"
-#import "MGLTestRect.h"
+#import "MGLTestView.h"
 
 @implementation MGLAppDelegate
 
@@ -18,13 +18,13 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    // MGLTestRect
+    // MGLTestView
     // -----------
-    MGLTestRect* mglTestRect = [[MGLTestRect alloc] initWithFrame:self.window.frame];
-    [self.window addSubview:mglTestRect];
-    [mglTestRect setNeedsShade];
+    MGLTestView* mglTestView = [[MGLTestView alloc] initWithFrame:self.window.frame];
+    [self.window addSubview:mglTestView];
+    [mglTestView setNeedsShade];
     // -----------
-    // MGLTestRect
+    // MGLTestView
     
     return YES;
 }

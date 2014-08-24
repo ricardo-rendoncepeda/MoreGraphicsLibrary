@@ -28,7 +28,7 @@
 		807FD0C819A98DC8008205F1 /* MGLColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 807FD0C719A98DC8008205F1 /* MGLColor.m */; };
 		807FD0CA19A9C032008205F1 /* Rect.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 807FD0C919A9C032008205F1 /* Rect.vsh */; };
 		807FD0CC19A9C03E008205F1 /* Rect.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 807FD0CB19A9C03E008205F1 /* Rect.fsh */; };
-		807FD0D819A9DDB9008205F1 /* MGLTestRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 807FD0D719A9DDB9008205F1 /* MGLTestRect.m */; };
+		807FD0D819A9DDB9008205F1 /* MGLTestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 807FD0D719A9DDB9008205F1 /* MGLTestView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,8 +73,8 @@
 		807FD0C719A98DC8008205F1 /* MGLColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGLColor.m; path = Library/MGLColor.m; sourceTree = "<group>"; };
 		807FD0C919A9C032008205F1 /* Rect.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Rect.vsh; path = Library/Rect/Rect.vsh; sourceTree = "<group>"; };
 		807FD0CB19A9C03E008205F1 /* Rect.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Rect.fsh; path = Library/Rect/Rect.fsh; sourceTree = "<group>"; };
-		807FD0D619A9DDB9008205F1 /* MGLTestRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGLTestRect.h; sourceTree = "<group>"; };
-		807FD0D719A9DDB9008205F1 /* MGLTestRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGLTestRect.m; sourceTree = "<group>"; };
+		807FD0D619A9DDB9008205F1 /* MGLTestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGLTestView.h; sourceTree = "<group>"; };
+		807FD0D719A9DDB9008205F1 /* MGLTestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGLTestView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,8 +140,8 @@
 			children = (
 				807FD08F19A97319008205F1 /* MGLAppDelegate.h */,
 				807FD09019A97319008205F1 /* MGLAppDelegate.m */,
-				807FD0D619A9DDB9008205F1 /* MGLTestRect.h */,
-				807FD0D719A9DDB9008205F1 /* MGLTestRect.m */,
+				807FD0D619A9DDB9008205F1 /* MGLTestView.h */,
+				807FD0D719A9DDB9008205F1 /* MGLTestView.m */,
 				807FD0B319A97373008205F1 /* Library */,
 				807FD09219A97319008205F1 /* Images.xcassets */,
 				807FD08719A97319008205F1 /* Supporting Files */,
@@ -310,7 +310,7 @@
 				807FD0C519A98D1E008205F1 /* MGLRect.m in Sources */,
 				807FD09119A97319008205F1 /* MGLAppDelegate.m in Sources */,
 				807FD0BD19A98750008205F1 /* MGLPrimitives.m in Sources */,
-				807FD0D819A9DDB9008205F1 /* MGLTestRect.m in Sources */,
+				807FD0D819A9DDB9008205F1 /* MGLTestView.m in Sources */,
 				807FD0B719A97E70008205F1 /* MGLView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -512,6 +512,7 @@
 				807FD0AB19A97319008205F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		807FD0AC19A97319008205F1 /* Build configuration list for PBXNativeTarget "MoreGraphicsLibraryTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +521,7 @@
 				807FD0AE19A97319008205F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

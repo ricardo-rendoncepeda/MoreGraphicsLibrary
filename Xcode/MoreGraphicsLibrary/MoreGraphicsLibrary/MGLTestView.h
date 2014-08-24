@@ -1,5 +1,5 @@
 //
-//  MGLTestRect.h
+//  MGLTestView.h
 //  MoreGraphicsLibrary
 //
 //  Created by Ricardo on 8/24/14.
@@ -8,6 +8,6 @@
 
 #import "MGLView.h"
 
-@interface MGLTestRect : MGLView
+@interface MGLTestView : MGLView
 
 @end

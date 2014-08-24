@@ -39,7 +39,7 @@
         [EAGLContext setCurrentContext:_MGLcontext];
         
         // OpenGL ES
-        glClearColor(1.0, 0.0, 0.0, 1.0);
+        glClearColor(0.0, 0.0, 0.0, 1.0);
         glViewport(0, 0, frame.size.width, frame.size.height);
         
         // Buffers

@@ -58,13 +58,12 @@
 {
     if(self = [super init])
     {
-        _rect = rect;
-        _resolution = frame.size;
         _fillColor = [MGLColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
         _strokeColor = [MGLColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
         _cornerColor = [MGLColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
-        _resolution = frame.size;
         
+        _rect = rect;
+        _resolution = frame.size;
         _shader = [MGLRectShader new];
         glUseProgram(_shader.program);
     }
@@ -73,103 +72,63 @@
 
 - (void)fillRect
 {
-    // Points
-    float* points = [self rectFill];
-    
-    // Uniforms
-    glUniform2f(self.shader.uResolution, self.resolution.width, self.resolution.height);
     glUniform4f(self.shader.uColor, self.fillColor.r, self.fillColor.g, self.fillColor.b, self.strokeColor.a);
-    
-    // Attributes
-    glEnableVertexAttribArray(self.shader.aPosition);
-    glVertexAttribPointer(self.shader.aPosition, 2, GL_FLOAT, GL_FALSE, 0, points);
-    
-    // Draw
-    glLineWidth(16.0);
-    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-    glDisableVertexAttribArray(self.shader.aPosition);
-    free(points);
+    [self shadePoints:[self pointsAsStrip] withMode:GL_TRIANGLE_STRIP];
 }
 
 - (void)strokeRect
 {
-    // Points
-    float* points = [self rectCorner];
-    
-    // Uniforms
-    glUniform2f(self.shader.uResolution, self.resolution.width, self.resolution.height);
     glUniform4f(self.shader.uColor, self.strokeColor.r, self.strokeColor.g, self.strokeColor.b, self.strokeColor.a);
-    
-    // Attributes
-    glEnableVertexAttribArray(self.shader.aPosition);
-    glVertexAttribPointer(self.shader.aPosition, 2, GL_FLOAT, GL_FALSE, 0, points);
-    
-    // Draw
     glLineWidth(self.strokeWidth);
-    glDrawArrays(GL_LINE_LOOP, 0, 4);
-    glDisableVertexAttribArray(self.shader.aPosition);
-    free(points);
+    [self shadePoints:[self pointsAsLoop] withMode:GL_LINE_LOOP];
 }
 
 - (void)cornerRect
 {
-    // Points
-    float* points = [self rectStroke];
-    
-    // Uniforms
-    glUniform1f(self.shader.uSize, self.cornerSize);
-    glUniform2f(self.shader.uResolution, self.resolution.width, self.resolution.height);
     glUniform4f(self.shader.uColor, self.cornerColor.r, self.cornerColor.g, self.cornerColor.b, self.cornerColor.a);
+    glUniform1f(self.shader.uSize, self.cornerSize);
+    [self shadePoints:[self pointsAsLoop] withMode:GL_POINTS];
+}
+
+- (void)shadePoints:(float*)points withMode:(GLenum)mode
+{
+    // Uniforms
+    glUniform2f(self.shader.uResolution, self.resolution.width, self.resolution.height);
     
     // Attributes
     glEnableVertexAttribArray(self.shader.aPosition);
     glVertexAttribPointer(self.shader.aPosition, 2, GL_FLOAT, GL_FALSE, 0, points);
     
     // Draw
-    glDrawArrays(GL_POINTS, 0, 4);
+    glDrawArrays(mode, 0, 4);
     glDisableVertexAttribArray(self.shader.aPosition);
-    free(points);
 }
 
-- (float*)rectCorner
+- (float*)pointsAsStrip
 {
     float* points = (float*)malloc(sizeof(float)*2*4);
     points[0] = _rect.origin.x;
     points[1] = _rect.origin.y;
-    points[2] = _rect.size.width;
-    points[3] = _rect.origin.y;
-    points[4] = _rect.size.width;
-    points[5] = _rect.size.height;
-    points[6] = _rect.origin.x;
-    points[7] = _rect.size.height;
-    return points;
-}
-
-- (float*)rectStroke
-{
-    float* points = (float*)malloc(sizeof(float)*2*4);
-    points[0] = _rect.origin.x;
-    points[1] = _rect.origin.y;
-    points[2] = _rect.size.width;
-    points[3] = _rect.origin.y;
-    points[4] = _rect.size.width;
-    points[5] = _rect.size.height;
-    points[6] = _rect.origin.x;
-    points[7] = _rect.size.height;
-    return points;
-}
-
-- (float*)rectFill
-{
-    float* points = (float*)malloc(sizeof(float)*2*4);
-    points[0] = _rect.origin.x;
-    points[1] = _rect.origin.y;
-    points[2] = _rect.size.width;
+    points[2] = _rect.origin.x+_rect.size.width;
     points[3] = _rect.origin.y;
     points[4] = _rect.origin.x;
-    points[5] = _rect.size.height;
-    points[6] = _rect.size.width;
-    points[7] = _rect.size.height;
+    points[5] = _rect.origin.y+_rect.size.height;
+    points[6] = _rect.origin.x+_rect.size.width;
+    points[7] = _rect.origin.y+_rect.size.height;
+    return points;
+}
+
+- (float*)pointsAsLoop
+{
+    float* points = (float*)malloc(sizeof(float)*2*4);
+    points[0] = _rect.origin.x;
+    points[1] = _rect.origin.y;
+    points[2] = _rect.origin.x+_rect.size.width;
+    points[3] = _rect.origin.y;
+    points[4] = _rect.origin.x+_rect.size.width;
+    points[5] = _rect.origin.y+_rect.size.height;
+    points[6] = _rect.origin.x;
+    points[7] = _rect.origin.y+_rect.size.height;
     return points;
 }
 
