@@ -6,10 +6,7 @@
 //  Copyright (c) 2014 Idean. All rights reserved.
 //
 
-@class MGLPrimitives;
 @class MGLColor;
-#import "MGLView.h"
-#import "MGLShader.h"
 
 @interface MGLRect : NSObject
 

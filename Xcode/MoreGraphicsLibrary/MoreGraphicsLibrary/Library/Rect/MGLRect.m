@@ -7,10 +7,8 @@
 //
 
 #import "MGLRect.h"
-#import "MGLPrimitives.h"
 #import "MGLColor.h"
 #import "MGLShader.h"
-#import "MGLView.h"
 
 #pragma mark - Shader
 @interface MGLRectShader : MGLShader
@@ -35,6 +33,7 @@
         _aPosition = glGetAttribLocation(self.program, "aPosition");
         
         // Uniforms
+        _uResolution = glGetUniformLocation(self.program, "uResolution");
         _uSize = glGetUniformLocation(self.program, "uSize");
         _uColor = glGetUniformLocation(self.program, "uColor");
     }
