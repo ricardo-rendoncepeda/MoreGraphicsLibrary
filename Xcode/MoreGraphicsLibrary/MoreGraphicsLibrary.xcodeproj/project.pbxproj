@@ -23,6 +23,7 @@
 		807FD0B219A9732A008205F1 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807FD0B119A9732A008205F1 /* GLKit.framework */; };
 		807FD0B719A97E70008205F1 /* MGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 807FD0B619A97E70008205F1 /* MGLView.m */; };
 		807FD0BD19A98750008205F1 /* MGLPrimitives.m in Sources */ = {isa = PBXBuildFile; fileRef = 807FD0BC19A98750008205F1 /* MGLPrimitives.m */; };
+		807FD0C119A98BCF008205F1 /* MGLShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 807FD0C019A98BCF008205F1 /* MGLShader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,8 @@
 		807FD0B619A97E70008205F1 /* MGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGLView.m; path = Library/MGLView.m; sourceTree = "<group>"; };
 		807FD0BB19A98750008205F1 /* MGLPrimitives.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGLPrimitives.h; path = Library/MGLPrimitives.h; sourceTree = "<group>"; };
 		807FD0BC19A98750008205F1 /* MGLPrimitives.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGLPrimitives.m; path = Library/MGLPrimitives.m; sourceTree = "<group>"; };
+		807FD0BF19A98BCF008205F1 /* MGLShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGLShader.h; path = Library/MGLShader.h; sourceTree = "<group>"; };
+		807FD0C019A98BCF008205F1 /* MGLShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGLShader.m; path = Library/MGLShader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +171,8 @@
 				807FD0B619A97E70008205F1 /* MGLView.m */,
 				807FD0BB19A98750008205F1 /* MGLPrimitives.h */,
 				807FD0BC19A98750008205F1 /* MGLPrimitives.m */,
+				807FD0BF19A98BCF008205F1 /* MGLShader.h */,
+				807FD0C019A98BCF008205F1 /* MGLShader.m */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -269,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				807FD08D19A97319008205F1 /* main.m in Sources */,
+				807FD0C119A98BCF008205F1 /* MGLShader.m in Sources */,
 				807FD09119A97319008205F1 /* MGLAppDelegate.m in Sources */,
 				807FD0BD19A98750008205F1 /* MGLPrimitives.m in Sources */,
 				807FD0B719A97E70008205F1 /* MGLView.m in Sources */,
