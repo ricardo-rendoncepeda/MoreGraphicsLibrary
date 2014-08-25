@@ -9,9 +9,6 @@
 #import "MGDCurveViewCG.h"
 
 @implementation MGDCurveViewCG
-{
-    BOOL _running;
-}
 
 - (void)drawRect:(CGRect)rect
 {

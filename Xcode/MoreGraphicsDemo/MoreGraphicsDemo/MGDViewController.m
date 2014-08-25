@@ -11,6 +11,8 @@
 #import "MGDRectViewMG.h"
 #import "MGDCurveViewCG.h"
 #import "MGDCurveViewMG.h"
+#import "MGDPolygonViewCG.h"
+#import "MGDPolygonViewMG.h"
 
 @interface MGDViewController ()
 
@@ -32,7 +34,8 @@
     [super viewDidAppear:animated];
     
 //    [self demoRect];
-    [self demoCurve];
+//    [self demoCurve];
+    [self demoPolygon];
 }
 
 - (void)demoRect
@@ -63,6 +66,21 @@
     MGDCurveViewMG* curveViewMG = [[MGDCurveViewMG alloc] initWithFrame:self.mgView.bounds];
     [self.mgView addSubview:curveViewMG];
     [curveViewMG setNeedsShade];
+}
+
+- (void)demoPolygon
+{
+    // Title
+    self.titleLabel.text = @"Polygon Demo";
+    
+    // Core Graphics
+    MGDPolygonViewCG* polygonViewCG = [[MGDPolygonViewCG alloc] initWithFrame:self.cgView.bounds];
+    [self.cgView addSubview:polygonViewCG];
+    
+    // More Graphics
+    MGDPolygonViewMG* polygonViewMG = [[MGDPolygonViewMG alloc] initWithFrame:self.mgView.bounds];
+    [self.mgView addSubview:polygonViewMG];
+    [polygonViewMG setNeedsShade];
 }
 
 @end

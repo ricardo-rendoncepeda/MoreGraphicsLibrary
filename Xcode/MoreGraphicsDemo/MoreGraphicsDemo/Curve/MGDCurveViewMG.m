@@ -19,7 +19,7 @@
     
     MGLPoint* a = [MGLPoint pointWithX:CGRectGetMaxX(rect)*0.25 y:CGRectGetMaxY(rect)*0.25];
     MGLPoint* b = [MGLPoint pointWithX:CGRectGetMaxX(rect)*0.75 y:CGRectGetMaxY(rect)*0.75];
-    MGLPoint* c = [MGLPoint pointWithX:CGRectGetMaxX(rect)*0.75 y:CGRectGetMaxY(rect)*0.1];
+//    MGLPoint* c = [MGLPoint pointWithX:CGRectGetMaxX(rect)*0.8 y:CGRectGetMaxY(rect)*0.2];
     
     MGLCurve* curve = [[MGLCurve alloc] initWithLine:line inFrame:rect];
     curve.segments = 100;
@@ -27,8 +27,8 @@
     curve.strokeColor = [MGLColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
     
 //    [curve bezierQuadraticWithPointA:a];
-//    [curve bezierCubicWithPointA:a b:b];
-    [curve bezierQuarticWithPointA:a b:b c:c];
+    [curve bezierCubicWithPointA:a b:b];
+//    [curve bezierQuarticWithPointA:a b:b c:c];
     [curve strokeBezier];
     [curve showPoints];
 }

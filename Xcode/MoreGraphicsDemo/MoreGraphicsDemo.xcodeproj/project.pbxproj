@@ -45,6 +45,8 @@
 		801BBA9B19AAE79600F4537E /* Rect.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 801BBA8919AAE79500F4537E /* Rect.vsh */; };
 		8086A99F19ABAD5A004BA54D /* MGDCurveViewCG.m in Sources */ = {isa = PBXBuildFile; fileRef = 8086A99E19ABAD5A004BA54D /* MGDCurveViewCG.m */; };
 		8086A9A219ABAD6C004BA54D /* MGDCurveViewMG.m in Sources */ = {isa = PBXBuildFile; fileRef = 8086A9A119ABAD6C004BA54D /* MGDCurveViewMG.m */; };
+		8086A9A619ABBF11004BA54D /* MGDPolygonViewCG.m in Sources */ = {isa = PBXBuildFile; fileRef = 8086A9A519ABBF11004BA54D /* MGDPolygonViewCG.m */; };
+		8086A9A919ABBF21004BA54D /* MGDPolygonViewMG.m in Sources */ = {isa = PBXBuildFile; fileRef = 8086A9A819ABBF21004BA54D /* MGDPolygonViewMG.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +117,10 @@
 		8086A99E19ABAD5A004BA54D /* MGDCurveViewCG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGDCurveViewCG.m; path = Curve/MGDCurveViewCG.m; sourceTree = "<group>"; };
 		8086A9A019ABAD6C004BA54D /* MGDCurveViewMG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGDCurveViewMG.h; path = Curve/MGDCurveViewMG.h; sourceTree = "<group>"; };
 		8086A9A119ABAD6C004BA54D /* MGDCurveViewMG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGDCurveViewMG.m; path = Curve/MGDCurveViewMG.m; sourceTree = "<group>"; };
+		8086A9A419ABBF11004BA54D /* MGDPolygonViewCG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGDPolygonViewCG.h; path = Polygon/MGDPolygonViewCG.h; sourceTree = "<group>"; };
+		8086A9A519ABBF11004BA54D /* MGDPolygonViewCG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGDPolygonViewCG.m; path = Polygon/MGDPolygonViewCG.m; sourceTree = "<group>"; };
+		8086A9A719ABBF21004BA54D /* MGDPolygonViewMG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGDPolygonViewMG.h; path = Polygon/MGDPolygonViewMG.h; sourceTree = "<group>"; };
+		8086A9A819ABBF21004BA54D /* MGDPolygonViewMG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGDPolygonViewMG.m; path = Polygon/MGDPolygonViewMG.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +191,7 @@
 				801BBA3C19AAE4C700F4537E /* MGDViewController.m */,
 				801BBA6219AAE6F900F4537E /* Rect */,
 				8086A99619ABA384004BA54D /* Curve */,
+				8086A9A319ABBE21004BA54D /* Polygon */,
 				801BBA3E19AAE4C700F4537E /* Images.xcassets */,
 				801BBA5F19AAE6AB00F4537E /* MGL */,
 				801BBA2D19AAE4C700F4537E /* Supporting Files */,
@@ -318,6 +325,17 @@
 			name = Curve;
 			sourceTree = "<group>";
 		};
+		8086A9A319ABBE21004BA54D /* Polygon */ = {
+			isa = PBXGroup;
+			children = (
+				8086A9A419ABBF11004BA54D /* MGDPolygonViewCG.h */,
+				8086A9A519ABBF11004BA54D /* MGDPolygonViewCG.m */,
+				8086A9A719ABBF21004BA54D /* MGDPolygonViewMG.h */,
+				8086A9A819ABBF21004BA54D /* MGDPolygonViewMG.m */,
+			);
+			name = Polygon;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -431,6 +449,7 @@
 				8086A99F19ABAD5A004BA54D /* MGDCurveViewCG.m in Sources */,
 				801BBA8C19AAE79500F4537E /* MGLCurve.m in Sources */,
 				801BBA9919AAE79600F4537E /* MGLRect.m in Sources */,
+				8086A9A919ABBF21004BA54D /* MGDPolygonViewMG.m in Sources */,
 				801BBA3319AAE4C700F4537E /* main.m in Sources */,
 				8086A9A219ABAD6C004BA54D /* MGDCurveViewMG.m in Sources */,
 				801BBA6519AAE72C00F4537E /* MGDRectViewCG.m in Sources */,
@@ -440,6 +459,7 @@
 				801BBA9619AAE79500F4537E /* MGLPolygon.m in Sources */,
 				801BBA9319AAE79500F4537E /* MGLPrimitives.m in Sources */,
 				801BBA3D19AAE4C700F4537E /* MGDViewController.m in Sources */,
+				8086A9A619ABBF11004BA54D /* MGDPolygonViewCG.m in Sources */,
 				801BBA9519AAE79500F4537E /* MGLView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
