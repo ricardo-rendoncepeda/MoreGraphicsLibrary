@@ -9,6 +9,8 @@
 #import "MGDViewController.h"
 #import "MGDRectViewCG.h"
 #import "MGDRectViewMG.h"
+#import "MGDCurveViewCG.h"
+#import "MGDCurveViewMG.h"
 
 @interface MGDViewController ()
 
@@ -29,8 +31,8 @@
 {
     [super viewDidAppear:animated];
     
-    // Rect
-    [self demoRect];
+//    [self demoRect];
+    [self demoCurve];
 }
 
 - (void)demoRect
@@ -46,6 +48,21 @@
     MGDRectViewMG* rectViewMG = [[MGDRectViewMG alloc] initWithFrame:self.mgView.bounds];
     [self.mgView addSubview:rectViewMG];
     [rectViewMG setNeedsShade];
+}
+
+- (void)demoCurve
+{
+    // Title
+    self.titleLabel.text = @"Curve Demo";
+    
+    // Core Graphics
+    MGDCurveViewCG* curveViewCG = [[MGDCurveViewCG alloc] initWithFrame:self.cgView.bounds];
+    [self.cgView addSubview:curveViewCG];
+    
+    // More Graphics
+    MGDCurveViewMG* curveViewMG = [[MGDCurveViewMG alloc] initWithFrame:self.mgView.bounds];
+    [self.mgView addSubview:curveViewMG];
+    [curveViewMG setNeedsShade];
 }
 
 @end
