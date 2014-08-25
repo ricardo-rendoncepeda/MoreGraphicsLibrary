@@ -17,5 +17,7 @@
 #import "MGLRect.h"
 #import "MGLCurve.h"
 #import "MGLPolygon.h"
+#import "MGLGradientLinear.h"
+#import "MGLGradientRadial.h"
 
 #endif

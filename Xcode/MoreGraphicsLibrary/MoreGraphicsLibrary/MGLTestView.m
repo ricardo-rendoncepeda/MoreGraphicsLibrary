@@ -15,7 +15,9 @@
 {
 //    [self testRectWithRect:rect];
 //    [self testCurveWithRect:rect];
-    [self testPolygonWithRect:rect];
+//    [self testPolygonWithRect:rect];
+//    [self testGradientLinearWithRect:rect];
+    [self testGradientRadialWithRect:rect];
 }
 
 - (void)testRectWithRect:(CGRect)rect
@@ -73,6 +75,27 @@
     mglPolygon.strokeColor = [MGLColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0];
     mglPolygon.strokeWidth = 4.0;
     [mglPolygon strokePolygon];
+}
+
+- (void)testGradientLinearWithRect:(CGRect)rect
+{
+    MGLGradientLinear* mglGradientLinear = [[MGLGradientLinear alloc] initWithRect:CGRectMake(0.0, 0.0, rect.size.width, rect.size.height) inFrame:self.frame];
+    
+    mglGradientLinear.startColor = [MGLColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0];
+    mglGradientLinear.endColor = [MGLColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
+    mglGradientLinear.angle = 45.0;
+    [mglGradientLinear fillGradientLinear];
+}
+
+- (void)testGradientRadialWithRect:(CGRect)rect
+{
+    MGLGradientRadial* mglGradientRadial = [[MGLGradientRadial alloc] initWithRect:CGRectMake(0.0, 0.0, rect.size.width, rect.size.height) inFrame:self.frame];
+    
+    mglGradientRadial.crestColor = [MGLColor colorWithRed:0.0 green:1.0 blue:1.0 alpha:1.0];
+    mglGradientRadial.troughColor = [MGLColor colorWithRed:1.0 green:0.0 blue:1.0 alpha:1.0];
+    mglGradientRadial.frequency = 4.0;
+    mglGradientRadial.phase = 0.5;
+    [mglGradientRadial fillGradientRadial];
 }
 
 @end

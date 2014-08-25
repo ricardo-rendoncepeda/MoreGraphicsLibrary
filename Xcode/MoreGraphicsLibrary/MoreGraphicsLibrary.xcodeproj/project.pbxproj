@@ -13,6 +13,11 @@
 		801BBA0819AAADF400F4537E /* MGLPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 801BBA0719AAADF400F4537E /* MGLPolygon.m */; };
 		801BBA0A19AAAE2A00F4537E /* Polygon.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 801BBA0919AAAE2A00F4537E /* Polygon.vsh */; };
 		801BBA0C19AAAE3400F4537E /* Polygon.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 801BBA0B19AAAE3400F4537E /* Polygon.fsh */; };
+		801BBA1019AAC65600F4537E /* MGLGradientLinear.m in Sources */ = {isa = PBXBuildFile; fileRef = 801BBA0F19AAC65600F4537E /* MGLGradientLinear.m */; };
+		801BBA1219AAC6DC00F4537E /* Gradient.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 801BBA1119AAC6DC00F4537E /* Gradient.vsh */; };
+		801BBA1419AAC6EA00F4537E /* GradientLinear.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 801BBA1319AAC6EA00F4537E /* GradientLinear.fsh */; };
+		801BBA1619AAC6F700F4537E /* GradientRadial.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 801BBA1519AAC6F700F4537E /* GradientRadial.fsh */; };
+		801BBA1919AADD0B00F4537E /* MGLGradientRadial.m in Sources */ = {isa = PBXBuildFile; fileRef = 801BBA1819AADD0B00F4537E /* MGLGradientRadial.m */; };
 		807FD08119A97319008205F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807FD08019A97319008205F1 /* Foundation.framework */; };
 		807FD08319A97319008205F1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807FD08219A97319008205F1 /* CoreGraphics.framework */; };
 		807FD08519A97319008205F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807FD08419A97319008205F1 /* UIKit.framework */; };
@@ -56,6 +61,13 @@
 		801BBA0719AAADF400F4537E /* MGLPolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGLPolygon.m; path = Library/Polygon/MGLPolygon.m; sourceTree = "<group>"; };
 		801BBA0919AAAE2A00F4537E /* Polygon.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Polygon.vsh; path = Library/Polygon/Polygon.vsh; sourceTree = "<group>"; };
 		801BBA0B19AAAE3400F4537E /* Polygon.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Polygon.fsh; path = Library/Polygon/Polygon.fsh; sourceTree = "<group>"; };
+		801BBA0E19AAC65600F4537E /* MGLGradientLinear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGLGradientLinear.h; path = Library/Gradient/MGLGradientLinear.h; sourceTree = "<group>"; };
+		801BBA0F19AAC65600F4537E /* MGLGradientLinear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGLGradientLinear.m; path = Library/Gradient/MGLGradientLinear.m; sourceTree = "<group>"; };
+		801BBA1119AAC6DC00F4537E /* Gradient.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Gradient.vsh; path = Library/Gradient/Gradient.vsh; sourceTree = "<group>"; };
+		801BBA1319AAC6EA00F4537E /* GradientLinear.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = GradientLinear.fsh; path = Library/Gradient/GradientLinear.fsh; sourceTree = "<group>"; };
+		801BBA1519AAC6F700F4537E /* GradientRadial.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = GradientRadial.fsh; path = Library/Gradient/GradientRadial.fsh; sourceTree = "<group>"; };
+		801BBA1719AADD0B00F4537E /* MGLGradientRadial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGLGradientRadial.h; path = Library/Gradient/MGLGradientRadial.h; sourceTree = "<group>"; };
+		801BBA1819AADD0B00F4537E /* MGLGradientRadial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGLGradientRadial.m; path = Library/Gradient/MGLGradientRadial.m; sourceTree = "<group>"; };
 		807FD07D19A97319008205F1 /* MoreGraphicsLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoreGraphicsLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		807FD08019A97319008205F1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		807FD08219A97319008205F1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -137,6 +149,20 @@
 				801BBA0B19AAAE3400F4537E /* Polygon.fsh */,
 			);
 			name = Polygon;
+			sourceTree = "<group>";
+		};
+		801BBA0D19AAC60000F4537E /* Gradient */ = {
+			isa = PBXGroup;
+			children = (
+				801BBA0E19AAC65600F4537E /* MGLGradientLinear.h */,
+				801BBA0F19AAC65600F4537E /* MGLGradientLinear.m */,
+				801BBA1719AADD0B00F4537E /* MGLGradientRadial.h */,
+				801BBA1819AADD0B00F4537E /* MGLGradientRadial.m */,
+				801BBA1119AAC6DC00F4537E /* Gradient.vsh */,
+				801BBA1319AAC6EA00F4537E /* GradientLinear.fsh */,
+				801BBA1519AAC6F700F4537E /* GradientRadial.fsh */,
+			);
+			name = Gradient;
 			sourceTree = "<group>";
 		};
 		807FD07419A97319008205F1 = {
@@ -229,6 +255,7 @@
 				807FD0C219A98CC0008205F1 /* Rect */,
 				801BB9FD19AA87C600F4537E /* Curve */,
 				801BBA0519AAAD9500F4537E /* Polygon */,
+				801BBA0D19AAC60000F4537E /* Gradient */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -324,7 +351,10 @@
 				801BBA0419AA895600F4537E /* Curve.fsh in Resources */,
 				801BBA0C19AAAE3400F4537E /* Polygon.fsh in Resources */,
 				807FD08B19A97319008205F1 /* InfoPlist.strings in Resources */,
+				801BBA1619AAC6F700F4537E /* GradientRadial.fsh in Resources */,
 				801BBA0A19AAAE2A00F4537E /* Polygon.vsh in Resources */,
+				801BBA1219AAC6DC00F4537E /* Gradient.vsh in Resources */,
+				801BBA1419AAC6EA00F4537E /* GradientLinear.fsh in Resources */,
 				807FD0CC19A9C03E008205F1 /* Rect.fsh in Resources */,
 				807FD0CA19A9C032008205F1 /* Rect.vsh in Resources */,
 				807FD09319A97319008205F1 /* Images.xcassets in Resources */,
@@ -351,9 +381,11 @@
 				807FD0C119A98BCF008205F1 /* MGLShader.m in Sources */,
 				807FD0C819A98DC8008205F1 /* MGLColor.m in Sources */,
 				807FD0C519A98D1E008205F1 /* MGLRect.m in Sources */,
+				801BBA1019AAC65600F4537E /* MGLGradientLinear.m in Sources */,
 				807FD09119A97319008205F1 /* MGLAppDelegate.m in Sources */,
 				807FD0BD19A98750008205F1 /* MGLPrimitives.m in Sources */,
 				801BBA0019AA87EF00F4537E /* MGLCurve.m in Sources */,
+				801BBA1919AADD0B00F4537E /* MGLGradientRadial.m in Sources */,
 				807FD0D819A9DDB9008205F1 /* MGLTestView.m in Sources */,
 				807FD0B719A97E70008205F1 /* MGLView.m in Sources */,
 			);
