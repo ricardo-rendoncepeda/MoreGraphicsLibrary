@@ -13,8 +13,8 @@
 
 - (void)shadeRect:(CGRect)rect
 {
-//    [self testRectWithRect:rect];
-    [self testCurveWithRect:rect];
+    [self testRectWithRect:rect];
+//    [self testCurveWithRect:rect];
 }
 
 - (void)testRectWithRect:(CGRect)rect
@@ -44,10 +44,10 @@
     MGLCurve* mglCurve = [[MGLCurve alloc] initWithLine:[MGLLine lineWithStart:start end:end] inFrame:rect];
     
     mglCurve.segments = 50;
-    mglCurve.width = 8.0;
-    mglCurve.color = [MGLColor colorWithRed:0.75 green:0.50 blue:0.25 alpha:1.0];
+    mglCurve.strokeWidth = 8.0;
+    mglCurve.strokeColor = [MGLColor colorWithRed:0.75 green:0.50 blue:0.25 alpha:1.0];
     
-    [mglCurve bezierQuarticWithControlPointA:a b:b c:c];
+    [mglCurve bezierQuarticWithPointA:a b:b c:c];
     [mglCurve strokeBezier];
     [mglCurve showPoints];
 }

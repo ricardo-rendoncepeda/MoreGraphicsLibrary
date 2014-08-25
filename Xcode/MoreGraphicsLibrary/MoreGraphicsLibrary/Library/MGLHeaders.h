@@ -16,5 +16,6 @@
 #import "MGLShader.h"
 #import "MGLRect.h"
 #import "MGLCurve.h"
+#import "MGLPolygon.h"
 
 #endif

@@ -12,14 +12,14 @@
 
 @interface MGLCurve : NSObject
 
-@property (strong, nonatomic, readwrite) MGLColor* color;
+@property (strong, nonatomic, readwrite) MGLColor* strokeColor;
 @property (assign, nonatomic, readwrite) int segments;
-@property (assign, nonatomic, readwrite) float width;
+@property (assign, nonatomic, readwrite) float strokeWidth;
 
 - (instancetype)initWithLine:(MGLLine*)line inFrame:(CGRect)frame;
-- (void)bezierQuadraticWithControlPointA:(MGLPoint*)a;
-- (void)bezierCubicWithControlPointA:(MGLPoint*)a b:(MGLPoint*)b;
-- (void)bezierQuarticWithControlPointA:(MGLPoint*)a b:(MGLPoint*)b c:(MGLPoint*)c;
+- (void)bezierQuadraticWithPointA:(MGLPoint*)a;
+- (void)bezierCubicWithPointA:(MGLPoint*)a b:(MGLPoint*)b;
+- (void)bezierQuarticWithPointA:(MGLPoint*)a b:(MGLPoint*)b c:(MGLPoint*)c;
 - (void)strokeBezier;
 - (void)showPoints;
 

@@ -46,7 +46,7 @@
 #pragma mark - Curve
 @interface MGLCurve ()
 
-@property (strong, nonatomic, readwrite) NSArray* controlPoints;
+@property (strong, nonatomic, readwrite) NSArray* points;
 @property (strong, nonatomic, readonly) MGLLine* line;
 @property (assign, nonatomic, readonly) CGSize resolution;
 @property (strong, nonatomic, readwrite) MGLCurveShader* shader;
@@ -55,15 +55,16 @@
 
 @implementation MGLCurve
 
+#pragma mark - Public
 - (instancetype)initWithLine:(MGLLine *)line inFrame:(CGRect)frame
 {
     if(self = [super init])
     {
-        _color = [MGLColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+        _strokeColor = [MGLColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
         _segments = 1;
-        _width = 1.0;
+        _strokeWidth = 1.0;
         
-        _controlPoints = [NSArray new];
+        _points = [NSArray new];
         _line = line;
         _resolution = frame.size;
         _shader = [MGLCurveShader new];
@@ -72,86 +73,82 @@
     return self;
 }
 
-- (void)bezierQuadraticWithControlPointA:(MGLPoint *)a
-{self.controlPoints = @[a];}
+- (void)bezierQuadraticWithPointA:(MGLPoint *)a
+{self.points = @[a];}
 
-- (void)bezierCubicWithControlPointA:(MGLPoint *)a b:(MGLPoint *)b
-{self.controlPoints = @[a, b];}
+- (void)bezierCubicWithPointA:(MGLPoint *)a b:(MGLPoint *)b
+{self.points = @[a, b];}
 
-- (void)bezierQuarticWithControlPointA:(MGLPoint *)a b:(MGLPoint *)b c:(MGLPoint *)c
-{self.controlPoints = @[a, b, c];}
+- (void)bezierQuarticWithPointA:(MGLPoint *)a b:(MGLPoint *)b c:(MGLPoint *)c
+{self.points = @[a, b, c];}
 
 - (void)strokeBezier
 {
-    // Uniforms
-    glUniform4f(self.shader.uColor, self.color.r, self.color.g, self.color.b, self.color.a);
-    glUniform2f(self.shader.uResolution, self.resolution.width, self.resolution.height);
-    
-    // Attributes
-    float* points = [self pointsFromBezier];
-    glEnableVertexAttribArray(self.shader.aPosition);
-    glVertexAttribPointer(self.shader.aPosition, 2, GL_FLOAT, GL_FALSE, 0, points);
-    
-    // Draw
-    glLineWidth(self.width);
-    glDrawArrays(GL_LINE_STRIP, 0, self.segments);
-    glDisableVertexAttribArray(self.shader.aPosition);
-    free(points);
+    glLineWidth(self.strokeWidth);
+    float* vertices = [self verticesFromBezier];
+    [self shadeVertices:vertices withMode:GL_LINE_STRIP count:self.segments];
 }
 
 - (void)showPoints
 {
+    glUniform1f(self.shader.uSize, self.strokeWidth);
+    float* vertices = (float *)malloc(sizeof(float)*2*[self.points count]);
+    for(int i=0; i<[self.points count]; i++)
+    {
+        MGLPoint* p = self.points[i];
+        vertices[0+(i*2)] = p.x;
+        vertices[1+(i*2)] = p.y;
+    }
+    [self shadeVertices:vertices withMode:GL_POINTS count:[self.points count]];
+}
+
+#pragma mark - Private
+- (void)shadeVertices:(float*)vertices withMode:(GLenum)mode count:(int)count
+{
     // Uniforms
-    glUniform1f(self.shader.uSize, self.width);
-    glUniform4f(self.shader.uColor, 1.0-self.color.r, 1.0-self.color.g, 1.0-self.color.b, self.color.a);
+    glUniform4f(self.shader.uColor, self.strokeColor.r, self.strokeColor.g, self.strokeColor.b, self.strokeColor.a);
     glUniform2f(self.shader.uResolution, self.resolution.width, self.resolution.height);
     
     // Attributes
-    float* points = (float *)malloc(sizeof(float)*2*[self.controlPoints count]);
-    for(int i=0; i<[self.controlPoints count]; i++)
-    {
-        MGLPoint* p = self.controlPoints[i];
-        points[0+(i*2)] = p.x;
-        points[1+(i*2)] = p.y;
-    }
     glEnableVertexAttribArray(self.shader.aPosition);
-    glVertexAttribPointer(self.shader.aPosition, 2, GL_FLOAT, GL_FALSE, 0, points);
+    glVertexAttribPointer(self.shader.aPosition, 2, GL_FLOAT, GL_FALSE, 0, vertices);
     
     // Draw
-    glDrawArrays(GL_POINTS, 0, [self.controlPoints count]);
+    glLineWidth(self.strokeWidth);
+    glDrawArrays(mode, 0, count);
     glDisableVertexAttribArray(self.shader.aPosition);
-    free(points);
+    free(vertices);
 }
 
-- (float*)pointsFromBezier
+- (float*)verticesFromBezier
 {
-    float* points = (float *)malloc(sizeof(float)*2*_segments);
+    float* vertices = (float *)malloc(sizeof(float)*2*_segments);
     for(int i=0; i<_segments; i++)
     {
         float t = ((float)(i)/(float)(_segments-1));
         MGLPoint* p;
-        switch([_controlPoints count])
+        switch([_points count])
         {
             case 1:
-                p = [self pointOnQuadraticWithP0:_line.start p1:_controlPoints[0] p2:_line.end atT:t];
+                p = [self pointOnQuadraticWithP0:_line.start p1:_points[0] p2:_line.end atT:t];
                 break;
                 
             case 2:
-                p = [self pointOnCubicWithP0:_line.start p1:_controlPoints[0] p2:_controlPoints[1] p3:_line.end atT:t];
+                p = [self pointOnCubicWithP0:_line.start p1:_points[0] p2:_points[1] p3:_line.end atT:t];
                 break;
                 
             case 3:
-                p = [self pointOnQuarticWithP0:_line.start p1:_controlPoints[0] p2:_controlPoints[1] p3:_controlPoints[2] p4:_line.end atT:t];
+                p = [self pointOnQuarticWithP0:_line.start p1:_points[0] p2:_points[1] p3:_points[2] p4:_line.end atT:t];
                 break;
                 
             default:
                 p = [MGLPoint pointWithX:0.0 y:0.0];
                 break;
         }
-        points[0+(i*2)] = p.x;
-        points[1+(i*2)] = p.y;
+        vertices[0+(i*2)] = p.x;
+        vertices[1+(i*2)] = p.y;
     }
-    return points;
+    return vertices;
 }
 
 - (MGLPoint*)pointOnQuadraticWithP0:(MGLPoint*)p0 p1:(MGLPoint*)p1 p2:(MGLPoint*)p2 atT:(float)t
