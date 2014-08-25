@@ -13,6 +13,8 @@
 #import "MGDCurveViewMG.h"
 #import "MGDPolygonViewCG.h"
 #import "MGDPolygonViewMG.h"
+#import "MGDGradientViewCG.h"
+#import "MGDGradientViewMG.h"
 
 @interface MGDViewController ()
 
@@ -35,7 +37,8 @@
     
 //    [self demoRect];
 //    [self demoCurve];
-    [self demoPolygon];
+//    [self demoPolygon];
+    [self demoGradient];
 }
 
 - (void)demoRect
@@ -81,6 +84,21 @@
     MGDPolygonViewMG* polygonViewMG = [[MGDPolygonViewMG alloc] initWithFrame:self.mgView.bounds];
     [self.mgView addSubview:polygonViewMG];
     [polygonViewMG setNeedsShade];
+}
+
+- (void)demoGradient
+{
+    // Title
+    self.titleLabel.text = @"Gradient Demo";
+    
+    // Core Graphics
+    MGDGradientViewCG* gradientViewCG = [[MGDGradientViewCG alloc] initWithFrame:self.cgView.bounds];
+    [self.cgView addSubview:gradientViewCG];
+    
+    // More Graphics
+    MGDGradientViewMG* gradientViewMG = [[MGDGradientViewMG alloc] initWithFrame:self.mgView.bounds];
+    [self.mgView addSubview:gradientViewMG];
+    [gradientViewMG setNeedsShade];
 }
 
 @end
