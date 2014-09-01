@@ -140,32 +140,41 @@
 
 - (void)triangulateByEarClipping
 {
+    // Copy points for removal
     NSMutableArray* pointsCopy = [NSMutableArray arrayWithArray:self.points];
     
+    // Point to be inspected
     MGLPoint* current = pointsCopy[0];
     while([pointsCopy count] > 3)
     {
+        // Get triangle from point
         MGLTriangle* triangle = [self triangleForPoint:current inPoints:pointsCopy];
         BOOL ear = YES;
         for(MGLPoint* point in pointsCopy)
         {
+            // Check if triangle contains other points
             if([self triangle:triangle containsPoint:point])
             {
+                // Not an ear
                 ear = NO;
                 break;
             }
         }
         if(ear)
         {
+            // Check if triangle angle is < 180 degrees
             if([self convexTriangle:triangle])
             {
+                // Add triangle and remove point
                 [self.triangles addObject:triangle];
                 [pointsCopy removeObject:triangle.b];
             }
         }
+        // Update point
         current = triangle.c;
     }
     
+    // Make final triangle
     if([pointsCopy count] == 3)
         [self.triangles addObject:[MGLTriangle triangleWithA:pointsCopy[0] b:pointsCopy[1] c:pointsCopy[2]]];
 }

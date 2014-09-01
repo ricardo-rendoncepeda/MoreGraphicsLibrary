@@ -61,6 +61,7 @@
 
 - (void)setNeedsShade
 {
+    // Clear display and present update
     glClear(GL_COLOR_BUFFER_BIT);
     [self shadeRect:self.rect];
     [_MGLcontext presentRenderbuffer:GL_RENDERBUFFER];

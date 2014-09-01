@@ -16,4 +16,6 @@ void main(void)
     
     gl_Position = vec4(pos, 0.0, 1.0);
     gl_PointSize = uSize;
+    
+//    gl_Position.xy *= 0.5;
 }
