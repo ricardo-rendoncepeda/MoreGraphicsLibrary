@@ -35,10 +35,10 @@
 {
     [super viewDidAppear:animated];
     
-//    [self demoRect];
+    [self demoRect];
 //    [self demoCurve];
 //    [self demoPolygon];
-    [self demoGradient];
+//    [self demoGradient];
 }
 
 - (void)demoRect

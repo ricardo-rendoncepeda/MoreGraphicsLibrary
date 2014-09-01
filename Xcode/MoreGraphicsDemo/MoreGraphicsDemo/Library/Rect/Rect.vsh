@@ -7,6 +7,9 @@ attribute vec2 aPosition;
 uniform vec2 uResolution;
 uniform float uSize;
 
+// Varying
+//varying vec4 vColor;
+
 // Main
 void main(void)
 {
@@ -18,4 +21,6 @@ void main(void)
     gl_PointSize = uSize;
     
 //    gl_Position.xy *= 0.5;
+    
+//    vColor = vec4(pos.x, pos.y, abs(pos.x+pos.y)/2.0, 1.0);
 }
