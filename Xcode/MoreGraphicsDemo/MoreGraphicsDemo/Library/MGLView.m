@@ -22,6 +22,7 @@
 
 + (Class)layerClass
 {
+    // EAGL = Embedded Apple GL
     return [CAEAGLLayer class];
 }
 
@@ -61,7 +62,7 @@
 
 - (void)setNeedsShade
 {
-    // Clear display and present update
+    // Clear display and present updated frame
     glClear(GL_COLOR_BUFFER_BIT);
     [self shadeRect:self.rect];
     [_MGLcontext presentRenderbuffer:GL_RENDERBUFFER];

@@ -72,8 +72,27 @@
 
 - (void)fillRect
 {
+    // Uniforms
     glUniform4f(self.shader.uColor, self.fillColor.r, self.fillColor.g, self.fillColor.b, self.strokeColor.a);
-    [self shadeVertices:[self verticesAsStrip] withMode:GL_TRIANGLE_STRIP];
+    glUniform2f(self.shader.uResolution, self.resolution.width, self.resolution.height);
+    
+    // Attributes
+    float* vertices = (float*)malloc(sizeof(float)*2*4);
+    vertices[0] = _rect.origin.x;
+    vertices[1] = _rect.origin.y;
+    vertices[2] = _rect.origin.x+_rect.size.width;
+    vertices[3] = _rect.origin.y;
+    vertices[4] = _rect.origin.x;
+    vertices[5] = _rect.origin.y+_rect.size.height;
+    vertices[6] = _rect.origin.x+_rect.size.width;
+    vertices[7] = _rect.origin.y+_rect.size.height;
+    glEnableVertexAttribArray(self.shader.aPosition);
+    glVertexAttribPointer(self.shader.aPosition, 2, GL_FLOAT, GL_FALSE, 0, vertices);
+    
+    // Draw
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+    glDisableVertexAttribArray(self.shader.aPosition);
+    free(vertices);
 }
 
 - (void)strokeRect

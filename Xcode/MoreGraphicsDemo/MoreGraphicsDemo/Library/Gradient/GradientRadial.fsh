@@ -16,18 +16,6 @@ const float cPi = 3.14159265359;
 // Main
 void main(void)
 {
-//    vec2 center = vec2(uResolution.x/2., uResolution.y/2.);
-//    float radius = uResolution.x/2.;
-//    vec2 position = gl_FragCoord.xy - center;
-//    
-//    if (length(position) > radius)
-//        discard;
-//    
-//    float distance = length(position)/radius;
-//    vec4 gradient = mix(uCrestColor, uTroughColor, distance);
-//    
-//    gl_FragColor = gradient;
-    
     vec2 center = vec2(uResolution.x/2., uResolution.y/2.);
     float radius = uResolution.x/2.;
     vec2 position = gl_FragCoord.xy - center;

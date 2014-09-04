@@ -9,9 +9,6 @@
 #import "MGDGradientViewCG.h"
 
 @implementation MGDGradientViewCG
-{
-    BOOL _isRunning;
-}
 
 - (void)drawRect:(CGRect)rect
 {
@@ -26,13 +23,13 @@
     CGGradientRef gradient = CGGradientCreateWithColors(CGColorSpaceCreateDeviceRGB(), (__bridge CFArrayRef)colors, locations);
     
     // LINEAR
-    CGPoint startPoint = CGPointMake(CGRectGetMinX(rect), CGRectGetMinY(rect));
-    CGPoint endPoint = CGPointMake(CGRectGetMinX(rect), CGRectGetMaxY(rect));
-    CGContextDrawLinearGradient(context, gradient, startPoint, endPoint, 0);
+//    CGPoint startPoint = CGPointMake(CGRectGetMinX(rect), CGRectGetMinY(rect));
+//    CGPoint endPoint = CGPointMake(CGRectGetMinX(rect), CGRectGetMaxY(rect));
+//    CGContextDrawLinearGradient(context, gradient, startPoint, endPoint, 0);
     
     // RADIAL
-//    CGPoint centerPoint = CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect));
-//    CGContextDrawRadialGradient(context, gradient, centerPoint, 0.0, centerPoint, CGRectGetMidX(rect), 0);
+    CGPoint centerPoint = CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect));
+    CGContextDrawRadialGradient(context, gradient, centerPoint, 0.0, centerPoint, CGRectGetMidX(rect), 0);
 }
 
 @end

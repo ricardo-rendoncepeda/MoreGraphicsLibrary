@@ -9,9 +9,6 @@
 #import "MGDPolygonViewCG.h"
 
 @implementation MGDPolygonViewCG
-{
-    BOOL _running;
-}
 
 - (void)drawRect:(CGRect)rect
 {

@@ -12,23 +12,15 @@ uniform float uAngle;
 // Main
 void main(void)
 {
-    vec2 position = gl_FragCoord.xy/uResolution;
+    vec2 center = vec2(uResolution.x/2., uResolution.y/2.);
+    float radius = uResolution.x/2.;
+    vec2 position = gl_FragCoord.xy - center;
     position.y = 1.0-position.y;
-    float slope = uAngle/90.0;
+    position /= radius;
+    
+    float slope = 45.0/90.0;
     float weight = abs(position.x)*slope + abs(position.y)*(1.0-slope);
     vec4 gradient = mix(uStartColor, uEndColor, weight);
-
-    gl_FragColor = gradient;
     
-//    vec2 center = vec2(uResolution.x/2., uResolution.y/2.);
-//    float radius = uResolution.x/2.;
-//    vec2 position = gl_FragCoord.xy - center;
-//    position.y = 1.0-position.y;
-//    position /= radius;
-//    
-//    float slope = uAngle/90.0;
-//    float weight = abs(position.x)*slope + abs(position.y)*(1.0-slope);
-//    vec4 gradient = mix(uStartColor, uEndColor, weight);
-//    
-//    gl_FragColor = gradient;
+    gl_FragColor = gradient;
 }
